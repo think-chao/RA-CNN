@@ -15,16 +15,19 @@ def train():
 	image, label = read_tfrecords(cfg.PATH.TF_RECORDS_SAVE)
 	image_batch, label_batch = tf.train.shuffle_batch([image, label], num_threads=16, batch_size=cfg.ARCH.BATCH_SIZE,
 		capacity=2000, min_after_dequeue=1900)
-	print(image_batch.shape)
 	input = tf.placeholder('float', shape=(cfg.ARCH.BATCH_SIZE, 224, 224, 3))
 	with tf.Session() as sess:
+		coord=tf.train.Coordinator()
+		threads= tf.train.start_queue_runners(coord=coord)
 		vgg16 = Vgg16()
+
 		with tf.name_scope("content_vgg"):
 			vgg16.build(input)
-		image_batch = sess.run(image_batch)
+		image_batch, label_batch = sess.run([image_batch, label_batch])
 		prob = sess.run(vgg16.prob, feed_dict={
-			input: image_batch.eval()
+			input: image_batch
 			})
+		print(prob)
 
 
 	#net = RA_CNN()
