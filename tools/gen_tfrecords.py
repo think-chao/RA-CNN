@@ -68,5 +68,5 @@ if __name__ == '__main__':
 
 	#organize_data_folder(cfg.PATH.LABELS, cfg.PATH.DATA)
 	gen_tfrecords(cfg.PATH.DATA, cfg.PATH.TF_RECORDS_SAVE, cfg.PATH.LABELS)
-	img, label = read_tfrecords(cfg.PATH.TF_RECORDS_SAVE)
+	#img, label = read_tfrecords(cfg.PATH.TF_RECORDS_SAVE)
 	#print(img)
