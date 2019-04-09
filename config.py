@@ -6,7 +6,7 @@ cfg.PATH = edict()
 cfg.PATH.DATA = r'F:\data\dog_breed\image'
 cfg.PATH.LABELS = r'F:\data\dog_breed\labels.csv'
 cfg.PATH.TF_RECORDS_SAVE = r'C:\Users\king\Desktop\code\RA-CNN\tfrecords\train.tfrecords'
-cfg.PATH.vgg16_npy_path = r'F:\data\vgg16.npy'
+cfg.PATH.vgg16_npy_path = r'E:\file\data\dog_breed\vgg16\vgg16.npy'
 
 
 cfg.ARCH = edict()
